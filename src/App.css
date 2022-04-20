@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+/* .logout_btn{
+   border-radius: 50%;
+   display: inline;
+   text-align: right;
+} */
+
+.product_body{
+  border:0px solid black;
+  margin-left: 25px;
+  
+
+}
+
+.dash_body{
+  background-color: whitesmoke;
+}
+
+.item{
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  overflow:hidden;
+  
+  
+}
+
+.product_image{
+  height:271px;
+  width:350px;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.product_price{
+  color: green;
+}

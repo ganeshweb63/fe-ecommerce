@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+
 class Register extends React.Component{
      constructor(){
          super();
@@ -17,16 +18,20 @@ class Register extends React.Component{
         this.setState({[name]:value})
      }
 
-     handlerSubmit=(event)=>{
+     userSubmit=(event)=>{
          event.preventDefault();
          console.log(this.state);
 
-        axios.post("http://localhost:9012/register",this.state).then(
+        axios.post("http://localhost:8888/register",this.state).then(
             res=>{
-                console.log( 'responce',res)
+                console.log( 'responce',res.data);
+                if(res.data.token){
+                    localStorage.setItem('token',res.data.token);
+                    this.props.history.push("/dashboard");
+                }                
             },
             err=>{
-                console.log(err);
+                console.log("error", err);
             }
 
         )
@@ -37,12 +42,13 @@ class Register extends React.Component{
          return(
              <div>
                  <h1>Register Page</h1>
-                 <form onSubmit={this.handlerSubmit} >
+                 <form onSubmit={this.userSubmit} method="POST" >
                      Username : <input type="text" name='username' onChange={this.handlerChange}></input><br></br><br></br>
                      Password : <input type="password" name='password' onChange={this.handlerChange}></input><br></br><br></br>
                      Email Id : <input type="email" name='emailId' onChange={this.handlerChange}></input><br></br><br></br>
                      <button>Register</button>
                  </form>
+                     
              </div>
          )
      }
