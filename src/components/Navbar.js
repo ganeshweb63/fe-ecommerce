@@ -1,11 +1,12 @@
 import React from 'react';
 import {HashRouter,NavLink,Route} from 'react-router-dom';
-import AddProduct from '../AdminEntries/AddProduct';
 import ProductDetails from '../AdminEntries/ProductDetails';
 import ChangePassword from './ChangePassword';
 import Contact from './Contact';
 import Login from './Login';
 import Register from './Register';
+import Products from '../AdminEntries/Products';
+import MyCart from '../Cart/MyCart';
   
 class Navbar extends React.Component{
 
@@ -36,8 +37,12 @@ class Navbar extends React.Component{
             </li>
 
             <li className="nav-item">
-                <NavLink className="nav-link"  to="/addProduct">AddProduct</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-            </li>            
+                <NavLink className="nav-link"  to="/products">Products</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>   
+
+            {/* <li className="nav-item">
+                <NavLink className="nav-link"  to="/products/:productDetails">ProductDetails</NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+            </li>          */}
         </ul>
       </div>
     </div>
@@ -48,8 +53,9 @@ class Navbar extends React.Component{
             <Route exact path="/register" component={Register}></Route>
             <Route exact path="/contact" component={Contact} ></Route>
             <Route exact path="/changePassword" component={ChangePassword}></Route>
-            <Route exact path="/addProduct" component={AddProduct} ></Route>
-            <Route exact path="/addProduct/:productId" component={ProductDetails} ></Route>
+            <Route exact path="/products" component={Products} ></Route>
+            <Route exact path="/products/:productId" component={ProductDetails} ></Route>
+            <Route exact path="/mycart" component={MyCart}></Route>
             </HashRouter>
         )        
     }
