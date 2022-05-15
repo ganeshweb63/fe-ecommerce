@@ -14,8 +14,12 @@ class Column1 extends React.Component{
         this.setState({Product:this.props.details});
     }
 
+    
+    
+
 
     render(){
+
         return(
         <div>
             {this.state.Product.map((product)=>{

@@ -6,16 +6,17 @@ import {Link} from 'react-router-dom'
 
 class Products extends React.Component{
 
-    constructor(){
-        super();
-        this.state={
-            products:[]
-        }
-      }
 
-      componentDidMount(){
-          this.getApi();
-      }
+   constructor(){
+       super();
+       this.state={
+           products:[]
+       }
+   }
+
+   componentDidMount(){
+       this.getApi();
+   }
 
     getApi=()=>{
         axios.get("http://localhost:8888/productList",this.state).then(
@@ -64,7 +65,7 @@ class Products extends React.Component{
                     
             </div>
         )
-    }
+   }
 }
 
 export default Products;

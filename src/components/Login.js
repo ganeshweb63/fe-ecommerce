@@ -8,7 +8,8 @@ class Login extends React.Component{
         super();
         this.state={
             emailId:'',
-            password:''
+            password:'',
+            isLoggedIn:false
         }
     }
 
@@ -29,7 +30,8 @@ class Login extends React.Component{
 
                 if(res.data.token){
                     localStorage.setItem('token',res.data.token);
-                    this.props.history.push("/addProduct");
+                    this.props.history.push("/products");
+                    this.setState({isLoggedIn:true});
                 }
             },
             err=>{
